@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.minton.qapi.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.minton.qapi.model.User">
+    <!--@mbg.generated-->
+    <!--@Table `user`-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userAccount" jdbcType="VARCHAR" property="useraccount" />
+    <result column="userAvatar" jdbcType="VARCHAR" property="useravatar" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="userRole" jdbcType="VARCHAR" property="userrole" />
+    <result column="userPassword" jdbcType="VARCHAR" property="userpassword" />
+    <result column="accessKey" jdbcType="VARCHAR" property="accesskey" />
+    <result column="secretKey" jdbcType="VARCHAR" property="secretkey" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="isDelete" jdbcType="TINYINT" property="isdelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userName, userAccount, userAvatar, gender, userRole, userPassword, accessKey, 
+    secretKey, createTime, updateTime, isDelete
+  </sql>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.minton.qapi.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `user`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="useraccount != null">
+        userAccount,
+      </if>
+      <if test="useravatar != null">
+        userAvatar,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="userrole != null">
+        userRole,
+      </if>
+      <if test="userpassword != null">
+        userPassword,
+      </if>
+      <if test="accesskey != null">
+        accessKey,
+      </if>
+      <if test="secretkey != null">
+        secretKey,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="useraccount != null">
+        #{useraccount,jdbcType=VARCHAR},
+      </if>
+      <if test="useravatar != null">
+        #{useravatar,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="userrole != null">
+        #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="accesskey != null">
+        #{accesskey,jdbcType=VARCHAR},
+      </if>
+      <if test="secretkey != null">
+        #{secretkey,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.minton.qapi.model.User">
+    <!--@mbg.generated-->
+    update `user`
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="useraccount != null">
+        userAccount = #{useraccount,jdbcType=VARCHAR},
+      </if>
+      <if test="useravatar != null">
+        userAvatar = #{useravatar,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="userrole != null">
+        userRole = #{userrole,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null">
+        userPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="accesskey != null">
+        accessKey = #{accesskey,jdbcType=VARCHAR},
+      </if>
+      <if test="secretkey != null">
+        secretKey = #{secretkey,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        isDelete = #{isdelete,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
