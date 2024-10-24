@@ -1,7 +1,7 @@
-package com.minton.qapi.mapper;
+package com.minton.qapi.interfaceInfo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.minton.qapi.model.UserInterfaceInfo;
+import com.minton.qapi.interfaceInfo.model.UserInterfaceInfo;
 
 public interface UserInterfaceInfoMapper extends BaseMapper<UserInterfaceInfo> {
     int insertSelective(UserInterfaceInfo record);

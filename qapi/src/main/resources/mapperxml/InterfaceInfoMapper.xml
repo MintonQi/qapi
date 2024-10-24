@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.minton.qapi.mapper.InterfaceInfoMapper">
-  <resultMap id="BaseResultMap" type="com.minton.qapi.model.InterfaceInfo">
+  <resultMap id="BaseResultMap" type="com.minton.qapi.interfaceInfo.model.InterfaceInfo">
     <!--@mbg.generated-->
     <!--@Table interface_info-->
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -23,7 +23,7 @@
     id, `name`, description, url, requestParams, requestHeader, responseHeader, `status`, 
     `method`, userId, createTime, updateTime, isDelete
   </sql>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.minton.qapi.model.InterfaceInfo" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.minton.qapi.interfaceInfo.model.InterfaceInfo" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into interface_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -103,7 +103,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.minton.qapi.model.InterfaceInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.minton.qapi.interfaceInfo.model.InterfaceInfo">
     <!--@mbg.generated-->
     update interface_info
     <set>

@@ -1,4 +1,4 @@
-package com.minton.qapi.model;
+package com.minton.qapi.user.model;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;

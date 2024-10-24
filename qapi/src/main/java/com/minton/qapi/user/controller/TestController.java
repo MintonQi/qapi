@@ -1,32 +1,28 @@
-package com.minton.qapi.controller;
+package com.minton.qapi.user.controller;
 
-import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 
-import com.minton.qapi.client.QApiClient;
-import com.minton.qapi.mapper.InterfaceInfoMapper;
-import com.minton.qapi.mapper.UserMapper;
-import com.minton.qapi.model.InterfaceInfo;
-import com.minton.qapi.model.User;
+import com.minton.qapi.interfaceInfo.mapper.InterfaceInfoMapper;
+import com.minton.qapi.interfaceInfo.model.InterfaceInfo;
+import com.minton.qapi.user.mapper.UserMapper;
+import com.minton.qapi.user.model.User;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
-
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
 @RequestMapping("/test")
+@Slf4j
 public class TestController {
 
     private final UserMapper userMapper;
     private final InterfaceInfoMapper interfaceInfoMapper;
+
 
     public TestController(UserMapper userMapper, InterfaceInfoMapper interfaceInfoMapper) {
         this.userMapper = userMapper;
@@ -48,12 +44,12 @@ public class TestController {
         return JSONUtil.toJsonPrettyStr(user);
     }
 
-    // use QApiClient to test PUT request
-    @PutMapping("/testPut/{id}")
-    public String testPut(@PathVariable Long id, @RequestBody User user) {
-        QApiClient qApiClient = new QApiClient("your_api_key", "your_api_secret");
-        HttpResponse response = qApiClient.sendRequest("PUT", "/users/" + id, JSONUtil.toJsonStr(user));
-        return response.body();
-    }
+//    @PutMapping("/testPut/{id}")
+//    public String testPut(@PathVariable Long id, @RequestBody User user) {
+//        log.info("testPut-------");
+//        HttpResponse response = qApiClient.sendRequest("PUT", "/users/" + id, JSONUtil.toJsonStr(user));
+//        log.info("response: {}", response.body());
+//        return response.body();
+//    }
 
 }

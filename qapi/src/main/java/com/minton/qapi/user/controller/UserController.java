@@ -1,4 +1,4 @@
-package com.minton.qapi.controller;
+package com.minton.qapi.user.controller;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.minton.qapi.model.User;
-import com.minton.qapi.service.UserService;
+import com.minton.qapi.user.model.User;
+import com.minton.qapi.user.service.impl.UserServiceImpl;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,30 +22,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class UserController {
     
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @PostMapping
     public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+        userService.save(user);
+        return user;
     }
 
     @GetMapping
     public List<User> getAllUsers() {
-        return userService.getAllUsers();
+        return userService.list();
     }
 
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+        return userService.getById(id);
     }
 
     @PutMapping("/{id}")
     public User updateUser(@PathVariable Long id, @RequestBody User user) {
-        return userService.updateUser(id, user);
+        user.setId(id);
+        userService.updateById(user);
+        return user;
     }
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+        userService.removeById(id);
     }
 }

@@ -1,4 +1,4 @@
-package com.minton.qapi.config;
+package com.minton.qapi.common.config;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
