@@ -1,4 +1,9 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.project.sourcePaths": [
+        "qapi-backend/src/main/java",
+        "qapi-backend/src/test/java"
+    ],
+    "java.project.outputPath": "qapi-backend/target/classes"
 }
