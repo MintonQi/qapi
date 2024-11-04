@@ -19,12 +19,14 @@ public class InterfaceInfoController {
     private InterfaceInfoServiceImpl interfaceInfoService;
 
     @PostMapping
+    @AdminCheck
     public R<InterfaceInfo> createInterfaceInfo(@RequestBody InterfaceInfo interfaceInfo) {
         boolean saved = interfaceInfoService.save(interfaceInfo);
         return saved ? R.success(interfaceInfo) : R.error(ResultCode.INTERNAL_ERROR, "Failed to create interface info");
     }
 
     @PutMapping("/{id}")
+    @AdminCheck
     public R<InterfaceInfo> updateInterfaceInfo(@PathVariable Long id, @RequestBody InterfaceInfo interfaceInfo) {
         interfaceInfo.setId(id);
         boolean updated = interfaceInfoService.updateById(interfaceInfo);
@@ -32,12 +34,14 @@ public class InterfaceInfoController {
     }
 
     @DeleteMapping("/{id}")
+    @AdminCheck
     public R<Boolean> deleteInterfaceInfo(@PathVariable Long id) {
         boolean deleted = interfaceInfoService.removeById(id);
         return R.success(deleted);
     }
 
     @GetMapping("/{id}")
+    @AdminCheck
     public R<InterfaceInfo> getInterfaceInfo(@PathVariable Long id) {
         InterfaceInfo info = interfaceInfoService.getInterfaceInfoById(id);
         return R.success(info);

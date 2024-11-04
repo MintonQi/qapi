@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.minton.qapi.common.aop.AdminCheck;
 import com.minton.qapi.user.model.User;
 import com.minton.qapi.user.request.UserRequest;
 import com.minton.qapi.user.service.impl.UserServiceImpl;
@@ -28,6 +29,7 @@ public class UserController {
     private UserServiceImpl userService;
 
     @PostMapping
+    @AdminCheck
     public User createUser(@RequestBody UserRequest userRequest) {
         User user = userRequest.getUser();
         userService.register(user);
@@ -35,16 +37,19 @@ public class UserController {
     }
 
     @GetMapping
+    @AdminCheck
     public List<User> getAllUsers() {
         return userService.list();
     }
 
     @GetMapping("/{id}")
+    @AdminCheck
     public User getUserById(@PathVariable Long id) {
         return userService.getById(id);
     }
 
     @PutMapping("/{id}")
+    @AdminCheck
     public User updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest) {
         User user = userRequest.getUser();
         user.setId(id);
@@ -53,6 +58,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @AdminCheck
     public void deleteUser(@PathVariable Long id) {
         userService.removeById(id);
     }

@@ -19,6 +19,6 @@ public class WebConfig implements WebMvcConfigurer {
         // 拦截所有/api开头的请求，排除登录接口
         registry.addInterceptor(loginAuthInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/api/user/login");
+                .excludePathPatterns("/users/login");
     }
 }

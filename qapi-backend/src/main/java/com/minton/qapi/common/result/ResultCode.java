@@ -8,7 +8,8 @@ public enum ResultCode {
     DB_ERROR(50100, "Database error"),
     UNKNOWN_ERROR(99999, "Unknown error"),
     USER_NOT_LOGIN(40100, "User not login"),
-    USER_NOT_FOUND(40101, "User not found");
+    USER_NOT_FOUND(40101, "User not found"),
+    NO_AUTH(40102, "No authorization");
 
     private final int code;
     private final String message;
